@@ -20,11 +20,11 @@ public class ServerClass {
                     int n = 1;
 
                     while (true) {
+                        msg = input.readUTF();
                         if (msg.equals("bye")) {
                             System.out.println("Пока, " + name);
                             break;
                         }
-                        msg = input.readUTF();
                         output.writeUTF("Ответ сервера: " + n + " - " + msg);
                         System.out.println("Полученно сообщение: №"+ n + " - " + msg);
                         n++;

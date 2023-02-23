@@ -24,10 +24,11 @@ public class ClientClass {
             while (true) {
                 msg = scanner.nextLine();
                 output.writeUTF(msg);
-                receivedMsg  = input.readUTF();
                 if (msg.equals("bye")) {
                     break;
                 }
+                receivedMsg  = input.readUTF();
+
                 System.out.println(receivedMsg);
             }
         } catch (IOException e) {
