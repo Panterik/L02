@@ -20,6 +20,16 @@ public class ClientClass {
             String receivedMsg = input.readUTF();
 
             System.out.println("Привет, " + receivedMsg);
+
+            while (true) {
+                msg = scanner.nextLine();
+                output.writeUTF(msg);
+                receivedMsg  = input.readUTF();
+                if (msg.equals("bye")) {
+                    break;
+                }
+                System.out.println(receivedMsg);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

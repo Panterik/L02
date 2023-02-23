@@ -16,19 +16,23 @@ public class ServerClass {
                     String msg = input.readUTF();
                     output.writeUTF(msg);
                     System.out.println("К нам пришел " + msg);
+                    String name = msg;
+                    int n = 1;
+
+                    while (true) {
+                        if (msg.equals("bye")) {
+                            System.out.println("Пока, " + name);
+                            break;
+                        }
+                        msg = input.readUTF();
+                        output.writeUTF("Ответ сервера: " + n + " - " + msg);
+                        System.out.println("Полученно сообщение: №"+ n + " - " + msg);
+                        n++;
+                    }
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-
-
-
-
-
-
-    public ServerClass() throws IOException {
     }
 }
