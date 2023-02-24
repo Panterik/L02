@@ -25,10 +25,18 @@ public class ServerClass {
                             System.out.println("Пока, " + name);
                             break;
                         }
+                        if (name.equals("admin") && msg.equals("exit")) {
+                            break;
+                        }
                         output.writeUTF("Ответ сервера: " + n + " - " + msg);
                         System.out.println("Полученно сообщение: №"+ n + " - " + msg);
                         n++;
                     }
+                    if (name.equals("admin") && msg.equals("exit")) {
+                        System.out.println("---Сервер остановлен---");
+                        break;
+                    }
+
                 }
             }
         } catch (IOException e) {

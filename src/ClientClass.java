@@ -15,6 +15,7 @@ public class ClientClass {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Ваше имя: ");
             String msg = scanner.nextLine();
+            String name = msg;
 
             output.writeUTF(msg);
             String receivedMsg = input.readUTF();
@@ -24,7 +25,8 @@ public class ClientClass {
             while (true) {
                 msg = scanner.nextLine();
                 output.writeUTF(msg);
-                if (msg.equals("bye")) {
+                if (msg.equals("bye") || (name.equals("admin") && msg.equals("exit"))) {
+                    System.out.println("Пока, " + name);
                     break;
                 }
                 receivedMsg  = input.readUTF();
